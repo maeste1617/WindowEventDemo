@@ -28,7 +28,8 @@ public class WindowEventDemo extends Frame
       btnCount.addActionListener(this);
         // btnCount fires ActionEvent to its registered ActionEvent listener
         // btnCount adds "this" object as an ActionEvent listener
-      addWindowListener(this);
+        add(btnClose);
+        addWindowListener(this);
         // "this" Frame fires WindowEvent its registered WindowEvent listener
         // "this" Frame adds "this" object as a WindowEvent listener
  
@@ -45,6 +46,10 @@ public class WindowEventDemo extends Frame
    /** ActionEvent handler */
    @Override
    public void actionPerformed(ActionEvent evt) {
+       String command = evt.getActionCommand();
+       if(command.equals("CLOSE")){
+       System.exit(0);
+       }
       ++count;
       tfCount.setText(count + "");
    }
